@@ -1,16 +1,17 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Signup from "@pages/Signup";
+import Registration from "@routes/Registration.tsx";
+import Home from "./routes/Home";
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Signup />,
+      element: <Registration />,
       errorElement: "<p>Error</p>",
     },
     {
       path: "/home",
-      element: "<p>Home</p>",
-      errorElement: "<p>Error</p>",
+      element: <Home />,
+      errorElement: "Error",
     },
   ]);
 

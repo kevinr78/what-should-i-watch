@@ -1,15 +1,40 @@
 {
-  "files": [],
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
+    "jsx": "react-jsx",
     "paths": {
+      "@/*": ["src/*"],
       "@features/*": ["src/features/*"],
-      "@pages/*": ["src/pages/*"],
-      "@assets/*": ["src/assets"]
-    }
+      "@utils/*": ["src/utils/*"],
+      "@components/*": ["src/components/*"],
+      "@config/*": ["./src/config/*"],
+      "@routes/*": ["src/routes/*"],
+      "@assets/*": ["src/assets/*"],
+      "@data/*": ["src/data/*"]
+    },
+    "target": "ES2022",
+    "lib": ["ES2022", "dom", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true
   },
-  "references": [
+  "include": ["src", "vite.config.ts"]
+  /*  "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ] */
 }
