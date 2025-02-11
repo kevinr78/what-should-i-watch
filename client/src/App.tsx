@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Registration from "@routes/Registration.tsx";
 import Home from "./routes/Home";
+import Layout from "./components/UI/Layout";
 function App() {
   const router = createBrowserRouter([
     {
@@ -9,9 +10,16 @@ function App() {
       errorElement: "<p>Error</p>",
     },
     {
-      path: "/home",
-      element: <Home />,
+      path: "/",
+      element: <Layout />,
       errorElement: "Error",
+      children: [
+        {
+          path: "/home",
+          element: <Home />,
+          errorElement: "Error",
+        },
+      ],
     },
   ]);
 
