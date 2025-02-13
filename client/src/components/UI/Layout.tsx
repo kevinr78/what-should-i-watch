@@ -1,17 +1,15 @@
-import React from "react";
 import SideBar from "./SideBar/Sidebar";
 import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar/Navbar";
 
-type LayoutProps = {
-  children: React.ReactNode;
-};
 export default function Layout() {
   return (
-    <div className="w-screen bg-slate-100 flex">
+    <div className="w-screen bg-black flex">
       <div>
         <SideBar />
       </div>
       <div className="flex-1 ">
+        <Navbar />
         <Outlet />
       </div>
     </div>
