@@ -1,4 +1,3 @@
-import React from "react";
 import SidebarLink from "../SideBar/SidebarLink";
 import { getIcon } from "@/config/icons";
 export default function Navbar() {
@@ -48,7 +47,7 @@ export default function Navbar() {
       </div>
       <div className="navbar-start hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          {(["Movie", "TV Show"] as const).map((link) => (
+          {(["Movies", "TV Shows"] as const).map((link) => (
             <SidebarLink
               key={link}
               name={link}

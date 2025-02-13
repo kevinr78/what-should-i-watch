@@ -10,8 +10,8 @@ import TrendingSideBarIcon from "@assets/trending-sidebar-icon.png";
 type IconType = {
   Home: string;
   Menu: string;
-  Movie: string;
-  "TV Show": string;
+  Movies: string;
+  "TV Shows": string;
   Profile: string;
   Logout: string;
   Favourites: string;
@@ -20,8 +20,8 @@ type IconType = {
 export const icons: IconType = {
   Home: HomeSideBarIcon,
   Menu: MenuSideBarIcon,
-  Movie: MovieSideBarIcon,
-  "TV Show": TVShowSideBarIcon,
+  Movies: MovieSideBarIcon,
+  "TV Shows": TVShowSideBarIcon,
   Profile: ProfileSideBarIcon,
   Logout: LogoutSideBarIcon,
   Favourites: FavouriteSideBarIcon,

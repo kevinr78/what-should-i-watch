@@ -9,7 +9,7 @@ export default function SideBar() {
       id="default-sidebar"
       className={` flex flex-col ${
         isClicked ? "w-24 items-center pl-6" : "w-60"
-      } sm:block h-screen pl-4 bg-black drop-shadow-lightPurple`}
+      } sm:block h-screen pl-4 bg-black drop-shadow-lightPurple transition-all duration-700 ease-in-out`}
       aria-label="Sidebar"
     >
       {/* Sidebar Header */}
@@ -21,7 +21,7 @@ export default function SideBar() {
           className="h-5 w-5 mr-2 bg-gray"
         />
         <h2
-          className={`text-2xl text-white font-medium text-ellipsis ${
+          className={`text-2xl text-white font-medium opacity-100 text-ellipsis transition-opacity duration-700 ease-in-out ${
             isClicked && "hidden"
           }`}
         >
@@ -30,7 +30,7 @@ export default function SideBar() {
       </div>
 
       {/* Sidebar Content */}
-      <div className="flex flex-col flex-1  overflow-auto p-2">
+      <div className="flex flex-col flex-1  p-2">
         {/* Top Section - Takes up available space */}
         <div className="flex flex-col gap-4">
           {(["Home", "Trending", "Favourites"] as const).map((link) => (
