@@ -1,11 +1,11 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type SidebarLinkProps = {
   name: string;
   icon: string;
   parent?: string; // Assuming parent is optional
   to: string;
-  isHidden: boolean;
+  isHidden?: boolean;
 };
 
 export default function SidebarLink({
@@ -15,7 +15,7 @@ export default function SidebarLink({
   to,
 }: SidebarLinkProps) {
   const navigate = useNavigate();
-  const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     const targetPath = e.currentTarget.dataset.to;
     if (targetPath === "/logout") {
       localStorage.removeItem("token");
@@ -26,16 +26,16 @@ export default function SidebarLink({
   };
 
   return (
-    <li
+    <p
       key={name}
       onClick={handleClick}
       data-to={to}
-      className={` rounded-md `}
+      className={` rounded-md p-2 hover:bg-lightPurple`}
     >
-      <a>
+      <a className="flex gap-2">
         <img src={icon} className="h-5 w-5" alt="" />
-        {!isHidden && name}
+        <span>{!isHidden && name}</span>
       </a>
-    </li>
+    </p>
   );
 }

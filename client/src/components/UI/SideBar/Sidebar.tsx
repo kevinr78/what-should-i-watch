@@ -7,51 +7,42 @@ export default function SideBar() {
   return (
     <aside
       id="default-sidebar"
-      className={`w-64  flex ${
-        isClicked && "  w-24 items-center"
-      }  sm:block  h-screen bg-teal-50`}
+      className={` flex flex-col ${
+        isClicked ? "w-24 items-center pl-6" : "w-60"
+      } sm:block h-screen pl-4 bg-black drop-shadow-lightPurple`}
       aria-label="Sidebar"
     >
-      <div className="flex justify-around items-center">
+      {/* Sidebar Header */}
+      <div className="flex items-center p-2 h-16 mb-4   ">
         <img
           src={getIcon("Menu")}
           alt="Menu"
-          onClick={() => {
-            setIsClicked(!isClicked);
-          }}
-          className="h-5 w-5 font-bold"
+          onClick={() => setIsClicked(!isClicked)}
+          className="h-5 w-5 mr-2 bg-gray"
         />
         <h2
-          className={`text-2xl font-medium text-ellipsis ${
+          className={`text-2xl text-white font-medium text-ellipsis ${
             isClicked && "hidden"
-          } `}
+          }`}
         >
           WhatToWatch
         </h2>
       </div>
-      <div className="flex-grow flex-1">
-        <h2 className="menu-title">Menu</h2>
-        <ul className="menu  text-base-content  p-4 ">
-          {(["Home", "Movie", "TV Show"] as const).map((link) => {
-            return (
-              <SidebarLink
-                name={link}
-                isHidden={isClicked}
-                icon={getIcon(link)}
-                to="/home"
-              />
-            );
-          })}
-        </ul>
-      </div>
-      <div>
-        <ul className="menu  text-base-content   p-4">
-          {/* Sidebar content here */}
-          <li>
-            <h2 className="menu-title text-clip"> Your Account</h2>
-            <ul></ul>
-          </li>
-        </ul>
+
+      {/* Sidebar Content */}
+      <div className="flex flex-col flex-1  overflow-auto p-2">
+        {/* Top Section - Takes up available space */}
+        <div className="flex flex-col gap-4">
+          {(["Home", "Trending", "Favourites"] as const).map((link) => (
+            <SidebarLink
+              key={link}
+              name={link}
+              isHidden={isClicked}
+              icon={getIcon(link)}
+              to="/home"
+            />
+          ))}
+        </div>
       </div>
     </aside>
   );
