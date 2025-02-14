@@ -7,8 +7,8 @@ export default function SideBar() {
   return (
     <aside
       id="default-sidebar"
-      className={` flex flex-col ${
-        isClicked ? "w-24 items-center pl-6" : "w-60"
+      className={` flex flex-col   ${
+        isClicked ? "w-50 items-center pl-6" : "w-72"
       } sm:block h-screen pl-4 bg-black drop-shadow-lightPurple transition-all duration-700 ease-in-out`}
       aria-label="Sidebar"
     >

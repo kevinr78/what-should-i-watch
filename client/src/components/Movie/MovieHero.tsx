@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import fetchFromTMDB from "@/utils/fetchTMDB";
+import fetchFromTMDB from "@/utils/fetchTMDB.ts";
 
 export type Movie = {
   id: number;
@@ -56,7 +56,7 @@ export default function MovieHero() {
     <div className="relative w-full h-[600px]">
       {/* Background Image with Transition */}
       <div
-        className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
+        className="absolute inset-0 max-w-full bg-cover bg-center transition-all duration-1000 ease-in-out"
         style={{
           backgroundImage: `url(http://image.tmdb.org/t/p/original/${carouselElements[safeIndex].backdrop_path})`,
         }}

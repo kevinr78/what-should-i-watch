@@ -1,10 +1,10 @@
 import { Method } from "./types";
-type fncParams = {
+export type APIParams = {
   endpoint: string;
   method: Method;
 };
 
-async function fetchFromTMDB({ endpoint, method }: fncParams) {
+async function fetchFromTMDB({ endpoint, method }: APIParams) {
   const url = `https://api.themoviedb.org/3/${endpoint}`;
   const options = {
     method: method,
