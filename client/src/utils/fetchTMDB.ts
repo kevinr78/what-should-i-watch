@@ -1,11 +1,6 @@
-import { Method } from "./types";
-export type APIParams = {
-  endpoint: string;
-  method: Method;
-};
+import { Method, APIParams } from "./types";
 
 async function fetchFromTMDB({ endpoint, method }: APIParams) {
-  const url = `https://api.themoviedb.org/3/${endpoint}`;
   const options = {
     method: method,
     headers: {
@@ -15,7 +10,7 @@ async function fetchFromTMDB({ endpoint, method }: APIParams) {
     },
   };
 
-  const request = await fetch(url, options);
+  const request = await fetch(endpoint, options);
   const response = await request.json();
   return response;
 }

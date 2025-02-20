@@ -1,13 +1,17 @@
 import { getIcon } from "@/config/icons";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 type RowProps = {
   title: string;
   children?: React.ReactNode;
+  to?: string;
+  type: string;
 };
 
-export default function Row({ title, children }: RowProps) {
+export default function Row({ title, children, to, type }: RowProps) {
   const rowRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   // Scroll Functions
   const scrollLeft = () => {
@@ -27,8 +31,18 @@ export default function Row({ title, children }: RowProps) {
       <h2 className="text-2xl font-bold text-white mb-4 px-6">
         {title}
 
-        <span className="mx-4">
-          |<button className="btn btn-outline ml-4">View All</button>
+        <span className={`mx-4 ${type === "Cast" ? "hidden" : ""}`}>
+          |
+          <button
+            className="btn btn-outline ml-4"
+            onClick={() => {
+              if (to) {
+                navigate(to);
+              }
+            }}
+          >
+            View All
+          </button>
         </span>
       </h2>
 

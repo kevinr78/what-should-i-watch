@@ -8,8 +8,10 @@ import FavouriteSideBarIcon from "@assets/favourite-sidebar-icon.png";
 import TrendingSideBarIcon from "@assets/trending-sidebar-icon.png";
 import PreviousArrowIcon from "@assets/less-than-sidebar-icon.png";
 import NextArrowIcon from "@assets/greater-than-sidenbar-icon.png";
-
-type IconType = {
+import MoreIcon from "@assets/more-icon.png";
+import FilterIcon from "@assets/filter-icon.png";
+import SortIcon from "@assets/sort-icon.png";
+export type IconType = {
   Home: string;
   Menu: string;
   Movies: string;
@@ -20,6 +22,9 @@ type IconType = {
   Trending: string;
   Previous: string;
   Next: string;
+  More: string;
+  Filter: string;
+  Sort: string;
 };
 export const icons: IconType = {
   Home: HomeSideBarIcon,
@@ -32,6 +37,9 @@ export const icons: IconType = {
   Trending: TrendingSideBarIcon,
   Previous: PreviousArrowIcon,
   Next: NextArrowIcon,
+  More: MoreIcon,
+  Filter: FilterIcon,
+  Sort: SortIcon,
 };
 
 export function getIcon(name: keyof IconType): string {

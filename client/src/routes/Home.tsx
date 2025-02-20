@@ -1,6 +1,7 @@
 import MovieHero from "@/components/Movie/MovieHero";
 import MediaItemRow from "@/components/UI/Row/MediaItemRow";
 import Row from "@/components/UI/Row/Row";
+import endpoints from "@/config/endpoints";
 // Define the type for a single movie object
 
 export default function Home() {
@@ -11,27 +12,24 @@ export default function Home() {
         <MovieHero />
       </div>
       <div id="movies" className="w-full">
-        <Row title="Top Rated Movies">
+        <Row title="Top Rated Movies" to="movies" type="Show">
           <MediaItemRow
-            endpoint="/movie/top_rated?language=en-US&page=1"
+            endpoint={endpoints["tmdb_movie_top_rated"]}
             method="GET"
           />
         </Row>
-        <Row title="Trending Movies">
+        <Row title="Trending Movies" to="movies" type="Show">
           <MediaItemRow
-            endpoint="trending/movie/day?language=en-US"
+            endpoint={endpoints["tmdb_movie_trending"]}
             method="GET"
           />
         </Row>
-        <Row title="Popular TV Shows">
-          <MediaItemRow
-            endpoint="tv/popular?language=en-US&page=1"
-            method="GET"
-          />
+        <Row title="Popular TV Shows" to="tvShows" type="Show">
+          <MediaItemRow endpoint={endpoints["tmdb_tv_popular"]} method="GET" />
         </Row>
-        <Row title="Top Rated TV Shows">
+        <Row title="Top Rated TV Shows" to="tvShows" type="Show">
           <MediaItemRow
-            endpoint="/tv/top_rated?language=en-US&page=1"
+            endpoint={endpoints["tmdb_tv_top_rated"]}
             method="GET"
           />
         </Row>
